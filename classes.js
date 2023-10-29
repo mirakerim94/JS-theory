@@ -78,4 +78,72 @@ const square = new Polygon([4, 4, 4, 4]);
     }
 }*/
 
+/**CREATING OBJECTS 
+ * using the "new" keyword followed by the class name. This initializes an instance of the class with its own set of properties and methods
+*/
+const myObject = new ClassName();
+
+/**PROPERTIES AND METHODS:
+ * inside a class you can define both properties(data) and methods(functions). Properties represent the state of an object, while methods represent its behavior
+ */
+class Persona {
+    constructor(name, age) { //name and age are properties
+        this.name = name
+        this.age = age
+    }
+    sayHello(){ //sayHello is a method of the Person class
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`)
+    }
+}
+
+/**CONSTRUCTOR AND INITIALIZATION:
+ * the constructor method is used to initialize object properties. It receives parameters that you can use to set initial values.
+ */
+const human = new Persona("Alice", 30)
+
+/**INHERITANCE: 
+ * classes in JS can be used to create a hierarchy of objects. You can create a subclass that inherits properties and methods from a superclass. Inheritance is achieved using the "extends" keyword
+ */
+class Student extends Persona {
+    constructor(name, age, studentID) {
+        super(name, age) // Call the constructor of the superclass
+        this.studentID = studentID //Add additional properties 
+    }
+}
+
+/**USING "SUPER":
+ * the super method keyword is used in a subclass to call the constructor and methods of the superclass. This ensures that the initialization and behavior of the superclass are maintained.
+ */
+
+/**STATIC METHODS:
+ * a static method is a method that belongs to the class itself, rather than to instances of the class. It is defined using the "static" keyword.
+ */
+class MathHelper {
+    static square(x) {
+        return x * x
+    }
+}
+const result = MathHelper.square(5) //Access the static method
+
+/**GETTERS AND SETTERS:
+ * JS classes support getter and setter methods that allow you to control access to object properties. 
+ */
+class Circle {
+    constructor(radius) {
+        this._radius = radius
+    }
+    get radius() {               //radius is controlled by a getter and setter
+        return this._radius
+    }
+    set radius(value){
+        if (value < 0) {
+            throw new Error("Radius cannot be negative.")
+        }
+        this._radius = value
+    }
+}
+
+/**CONCLUSION: 
+ * JS classes provide a structured way to create and manage objects in your code. they make it easier to organize and maintain your code, implement inheritance, and create objects with well-defined properties and behavior. Classes are a key feature of modern JS and a widely used in web development and other JS apps.
+*/
 
